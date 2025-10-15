@@ -34,7 +34,7 @@ const createOrder = async (order: IOrder) => {
 
 const getOrders = async () => {
   const orders = await Order.findAll({
-    attributes: ["order_id", "total", "status"],
+    attributes: ["order_id", "total", "status", "createdAt"],
     where: { user_id: 1 },
     include: [{ model: User, attributes: ["name"] }, { model: OrderItem }],
   });
