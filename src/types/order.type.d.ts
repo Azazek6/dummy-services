@@ -17,5 +17,6 @@ interface IProduct {
 }
 
 interface ICart extends IProduct {
-  quantity: number;
+  quantity: number
+  total: number;
 }

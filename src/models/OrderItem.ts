@@ -2,6 +2,7 @@ import {
   AutoIncrement,
   BelongsTo,
   Column,
+  DataType,
   ForeignKey,
   Model,
   PrimaryKey,
@@ -15,15 +16,19 @@ export class OrderItem extends Model {
   @AutoIncrement
   @Column
   declare item_id: number;
-  @Column({ allowNull: false })
   @ForeignKey(() => Order)
+  @Column({ allowNull: false })
   declare order_id: number;
   @BelongsTo(() => Order)
   declare order: Order;
   @Column({ allowNull: false })
   declare product_id: number;
   @Column({ allowNull: false })
-  declare sku: string;
+  declare thumbnail: string;
   @Column({ allowNull: false })
+  declare sku: string;
+  @Column({ allowNull: false, type: DataType.DECIMAL(10, 2) })
   declare price: number;
+  @Column({ allowNull: false })
+  declare quantity: number;
 }
