@@ -1,6 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
 import { User } from "../models/User";
 import { DB_HOST, DB_NAME, DB_PASSWORD, DB_USERNAME } from "./general";
+import { Order } from "../models/Order";
+import { OrderItem } from "../models/OrderItem";
 
 export const sequelize = new Sequelize({
   dialect: "mysql",
@@ -9,7 +11,7 @@ export const sequelize = new Sequelize({
   username: DB_USERNAME,
   password: DB_PASSWORD,
   database: DB_NAME,
-  models: [User],
+  models: [User, Order, OrderItem],
   timezone: "-05:00",
   logging: false,
   pool: {
